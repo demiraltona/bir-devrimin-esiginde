@@ -1,0 +1,51 @@
+:root {
+  --bg: #f4f0e8; --ink: #1e1e24; --muted: #5f5a54; --accent: #9b2226;
+  --card: #fbf9f4; --line: #d8d1c4; --btn-ink: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1c22; --ink: #ece7dd; --muted: #a9a297; --accent: #d0676b;
+    --card: #25252c; --line: #3a3a42; --btn-ink: #1c1c22;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 400 20px/1.6 "Crimson Pro", "Palatino Linotype", Palatino, Georgia, serif;
+}
+.wrap { max-width: 960px; margin: 0 auto; padding: 24px 16px 64px; }
+a { color: var(--accent); }
+.lang { text-align: right; font-size: 17px; color: var(--muted); margin-bottom: 24px; }
+.lang [aria-current] { color: var(--ink); font-weight: 600; }
+
+.hero { display: grid; grid-template-columns: minmax(0, 340px) 1fr; gap: 48px; align-items: center; }
+.cover { width: 100%; height: auto; display: block; border: 1px solid var(--line);
+  box-shadow: 0 14px 34px rgba(0,0,0,.22); }
+.info { text-align: center; }
+.author { font-size: 24px; letter-spacing: .06em; text-transform: uppercase; margin: 0; }
+hr { width: 120px; border: 0; border-top: 3px solid var(--accent); margin: 18px auto; }
+h1 { font-size: clamp(40px, 7vw, 64px); line-height: 1.1; font-weight: 700; margin: 0; }
+.sub { font-style: italic; color: var(--muted); margin: 0 0 28px; }
+
+.buttons { display: grid; gap: 12px; max-width: 360px; margin: 0 auto; }
+.btn {
+  display: block; padding: 14px 20px; border-radius: 8px; text-decoration: none;
+  font-size: 22px; font-weight: 600; border: 2px solid var(--accent); color: var(--accent);
+  background: var(--card); transition: transform .1s;
+}
+.btn small { display: block; font-size: 15px; font-weight: 400; opacity: .85; }
+.btn.primary { background: var(--accent); color: var(--btn-ink); }
+.btn:hover { transform: translateY(-1px); }
+.free { font-size: 16px; color: var(--muted); margin-top: 12px; }
+
+section.about, section.cite { margin-top: 56px; }
+h2 { font-size: 26px; margin: 0 0 10px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+.cite p { overflow-wrap: anywhere; }
+.small { font-size: 17px; color: var(--muted); }
+
+@media (max-width: 700px) {
+  .hero { grid-template-columns: 1fr; gap: 28px; }
+  .cover { max-width: 240px; margin: 0 auto; }
+  body { font-size: 18px; }
+}
